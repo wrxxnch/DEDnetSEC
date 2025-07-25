@@ -76,7 +76,7 @@ cd DEDnetSEC
 Using [bash](https://www.gnu.org/software/bash/):
 
 ```bash
-chmod +x {entrypoint}
+chmod +x dednetsec.sh
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ chmod +x {entrypoint}
 Run the project with:
 
 ```bash
-./{entrypoint}
+./dednetsec.sh
 ```
 
 
