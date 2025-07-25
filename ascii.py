@@ -109,25 +109,40 @@ def main(mensagem):
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣾⣿⣾⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣻⣾⣿⣾⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢿⣿⢿⣽⠷⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"""
-]
+]  
 
-    try:
-        while True:
-            for frame in frames:
+    # Verifica se a mensagem está vazia ou só com espaços
+    if not mensagem.strip():
+        mensagem += " Are u testing?"
+
+    if not frames:
+        # Se não tem frames, só mostra a mensagem com delay no loop
+        try:
+            while True:
                 os.system('cls' if os.name == 'nt' else 'clear')
-                print(frame)
-                print("")  # linha em branco entre o ascii e a mensagem
-                print(mensagem)  # mostra a mensagem abaixo do ascii
+                print(mensagem)
                 time.sleep(0.3)
-    except KeyboardInterrupt:
-        print("\n")
+        except KeyboardInterrupt:
+            print("")
+
+    else:
+        try:
+            while True:
+                for frame in frames:
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    print(frame)
+                    print("")  # linha em branco
+                    print(mensagem)
+                    time.sleep(0.3)
+        except KeyboardInterrupt:
+            print("")
 
 if __name__ == "__main__":
-    # Se quiser passar a mensagem pela linha de comando
     if len(sys.argv) > 1:
         mensagem = " ".join(sys.argv[1:])
     else:
         mensagem = ""
 
     main(mensagem)
+
 
