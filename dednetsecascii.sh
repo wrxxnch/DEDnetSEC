@@ -11,7 +11,7 @@ echo "                                     "
 echo ""
 
 # URL do script atualizado (modifique para seu link real)
-URL_SCRIPT="https://raw.githubusercontent.com/seuusuario/seurepositorio/main/script.sh"
+URL_SCRIPT="https://github.com/wrxxnch/DEDnetSEC"
 
 # Função para checar e instalar pacotes necessários
 check_install() {
