@@ -3,7 +3,7 @@ import os
 import sys
 
 def main(mensagem):
-   frames = [
+    frames = [
     """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⠤⠤⠔⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠢⠤⠤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡠⠴⠒⠊⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠒⠢⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠤⠒⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠓⠢⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -111,16 +111,16 @@ def main(mensagem):
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢿⣿⢿⣽⠷⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"""
 ]
 
-try:
-    while True:
-        for frame in frames:
-            os.system('cls' if os.name == 'nt' else 'clear')
-            print(frame)
-            print("")  # linha em branco entre o ascii e a mensagem
-            print(mensagem)  # mostra a mensagem abaixo do ascii
-            time.sleep(0.3)
-except KeyboardInterrupt:
-    print("\n")
+    try:
+        while True:
+            for frame in frames:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print(frame)
+                print("")  # linha em branco entre o ascii e a mensagem
+                print(mensagem)  # mostra a mensagem abaixo do ascii
+                time.sleep(0.3)
+    except KeyboardInterrupt:
+        print("\n")
 
 if __name__ == "__main__":
     # Se quiser passar a mensagem pela linha de comando
@@ -130,3 +130,4 @@ if __name__ == "__main__":
         mensagem = ""
 
     main(mensagem)
+
