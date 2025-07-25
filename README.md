@@ -3,6 +3,7 @@
 <div align="center">
 
 # DEDNETSEC
+![OurFace.gif](dedmiddlefinger.gif)
 
 *Empowering Secure Networks Through Intelligent Testing*
 
