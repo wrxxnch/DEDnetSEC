@@ -12,7 +12,7 @@ echo ""
 
 # Função para checar e instalar pacotes necessários
 check_install() {
-    local packages=("aircrack-ng" "dsniff" "ettercap-text-only" "arp-scan" "xterm" "net-tools")
+    local packages=("aircrack-ng" "dsniff" "ettercap-text-only" "arp-scan" "xterm" "net-tools" "pciutils")
     for pkg in "${packages[@]}"; do
         if ! dpkg -s "$pkg" &> /dev/null; then
             echo "Pacote '$pkg' não encontrado. Instalando..."
